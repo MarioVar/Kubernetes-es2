@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<a href="/app/home/restaurants?add" type="button" class="btn btn-primary">Add new restaurant</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>LOCATION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="restaurant : ${restaurants}">
+        <td><a th:href="@{'/app/home/'+${restaurant.id}}"><span th:text="${restaurant.id}">id</span></a></td>
+        
+        <td><span th:text="${restaurant.name}">name</span></td>
+        <td><span th:text="${restaurant.location}">location</span></td>
+      </tr>
+      
+</div>
+
+</body>
+</html>
